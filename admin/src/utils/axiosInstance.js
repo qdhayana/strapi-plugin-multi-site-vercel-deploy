@@ -3,7 +3,9 @@
  */
 
 import axios from 'axios';
-import { auth } from '@strapi/strapi/admin/helpers';
+import { getFetchClient } from '@strapi/strapi/admin/utils';
+
+const { auth } = getFetchClient();
 
 const instance = axios.create({
   baseURL: process.env.STRAPI_ADMIN_BACKEND_URL,

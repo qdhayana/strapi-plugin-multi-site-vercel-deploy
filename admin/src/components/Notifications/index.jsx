@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import { NotificationsProvider } from "@strapi/strapi/admin/notifications";
+import { NotifyProvider } from "@strapi/admin/strapi-admin";
 import { Stack } from "@strapi/design-system";
 
 import Notification from "./Notification";
@@ -19,7 +19,7 @@ const Notifications = ({ children }) => {
   };
 
   return (
-    <NotificationsProvider toggleNotification={displayNotification}>
+    <NotifyProvider toggleNotification={displayNotification}>
       <Stack
         left="50%"
         marginLeft="-250px"
@@ -38,7 +38,7 @@ const Notifications = ({ children }) => {
         )}
       </Stack>
       {children}
-    </NotificationsProvider>
+    </NotifyProvider>
   );
 };
 
