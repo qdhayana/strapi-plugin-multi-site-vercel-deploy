@@ -8,7 +8,7 @@ import React, { memo, useState, useEffect } from "react";
 
 import { Box } from "@strapi/design-system/Box";
 import { BaseHeaderLayout } from "@strapi/design-system/Layout";
-import { LoadingIndicatorPage } from "@strapi/helper-plugin";
+import { Page } from "@strapi/strapi/admin";
 import { Link } from "@strapi/design-system/Link";
 import ArrowLeft from "@strapi/icons/ArrowLeft";
 
@@ -76,7 +76,7 @@ const HomePage = () => {
   };
 
   if (isLoadingAvailability && !selectedSite) {
-    return <LoadingIndicatorPage />;
+    return <Page.Loading />;
   }
 
   const canListDeploy = availability?.listDeploy == "AVAILABLE";
