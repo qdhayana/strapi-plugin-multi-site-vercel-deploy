@@ -5,7 +5,7 @@
  */
 
 import React from "react";
-import Upload from "@strapi/icons/Upload";
+import { Upload } from "@strapi/icons";
 
 const PluginIcon = () => <Upload />;
 
