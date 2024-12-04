@@ -1,6 +1,6 @@
 {
   "name": "@code-mancers/strapi-plugin-multi-site-vercel-deploy",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Strapi v4 plugin to trigger and monitor deployment of multiple applications on Vercel",
   "repository": "https://github.com/code-mancers/strapi-plugin-multi-site-vercel-deploy.git",
   "homepage": "https://github.com/code-mancers/strapi-plugin-multi-site-vercel-deploy#readme",
