@@ -3,8 +3,8 @@
 import React, { useEffect, useCallback } from "react";
 import { useIntl } from "react-intl";
 
-import { Alert } from "@strapi/design-system/Alert";
-import { Link } from "@strapi/design-system/v2/Link";
+import { Alert } from "@strapi/design-system";
+import { Link } from "@strapi/design-system/v2";
 
 import getTrad from "../../utils/getTrad";
 

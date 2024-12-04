@@ -6,10 +6,9 @@
 
 import React, { memo, useState, useEffect } from "react";
 
-import { Box } from "@strapi/design-system/Box";
-import { BaseHeaderLayout } from "@strapi/design-system/Layout";
+import { Box, BaseHeaderLayout, Link } from "@strapi/design-system";
 import { Page } from "@strapi/strapi/admin";
-import { Link } from "@strapi/design-system/Link";
+
 import ArrowLeft from "@strapi/icons/ArrowLeft";
 
 import Notifications from "../../components/Notifications";

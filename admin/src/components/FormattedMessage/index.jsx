@@ -6,7 +6,7 @@
 
 import React from "react";
 
-import { Typography } from "@strapi/design-system/Typography";
+import { Typography } from "@strapi/design-system";
 
 import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 

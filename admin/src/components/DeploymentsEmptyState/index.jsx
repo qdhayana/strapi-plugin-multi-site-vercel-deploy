@@ -6,8 +6,7 @@
 
 import React, { memo } from "react";
 
-import { EmptyStateLayout } from "@strapi/design-system/EmptyStateLayout";
-import { LinkButton } from "@strapi/design-system/LinkButton";
+import { EmptyStateLayout, LinkButton } from "@strapi/design-system";
 import EmptyDocuments from "@strapi/icons/EmptyDocuments";
 import EmptyPermissions from "@strapi/icons/EmptyPermissions";
 import ExclamationMarkCircle from "@strapi/icons/ExclamationMarkCircle";

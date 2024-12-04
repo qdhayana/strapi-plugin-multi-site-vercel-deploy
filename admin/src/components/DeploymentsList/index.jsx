@@ -5,14 +5,10 @@
  */
 
 import React from "react";
-import { Table, Thead, Tbody, Tr, Td, Th } from "@strapi/design-system/Table";
-import { Typography } from "@strapi/design-system/Typography";
-import { Tooltip } from "@strapi/design-system/Tooltip";
-import { LinkButton } from "@strapi/design-system/LinkButton";
-import { Badge } from "@strapi/design-system/Badge";
-import { Loader } from "@strapi/design-system/Loader";
+import { Table, Thead, Tbody, Tr, Td, Th, Typography, Tooltip, LinkButton, Badge, Loader } from "@strapi/design-system";
 import ExternalLink from "@strapi/icons/ExternalLink";
-import Eye from "@strapi/icons/Eye";
+import { Eye } from "@strapi/icons";
+
 
 import SymmetricBox from "../SymmetricBox";
 import FormattedMessage from "../FormattedMessage";

@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 
 import { NotificationsProvider } from "@strapi/strapi/admin/notifications";
-import { Stack } from "@strapi/design-system/Stack";
+import { Stack } from "@strapi/design-system";
 
 import Notification from "./Notification";
 

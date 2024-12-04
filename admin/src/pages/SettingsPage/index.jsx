@@ -6,19 +6,13 @@
 
 import React, { memo, useEffect, useState } from "react";
 
-import { Box } from "@strapi/design-system/Box";
-import { HeaderLayout } from "@strapi/design-system/Layout";
-import { Stack } from "@strapi/design-system/Stack";
+import { Box, Stack, HeaderLayout, Loader, Flex, Typography, Divider } from "@strapi/design-system";
 import {
   Field,
   FieldLabel,
   FieldInput,
   FieldHint,
-} from "@strapi/design-system/Field";
-import { Loader } from "@strapi/design-system/Loader";
-import { Flex } from "@strapi/design-system/Flex";
-import { Typography } from "@strapi/design-system/Typography";
-import { Divider } from "@strapi/design-system";
+} from "@strapi/design-system";
 
 import DeploymentsEmptyState from "../../components/DeploymentsEmptyState";
 import { getConfig } from "../../utils/api";
