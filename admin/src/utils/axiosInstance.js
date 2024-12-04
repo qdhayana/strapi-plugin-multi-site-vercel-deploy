@@ -3,7 +3,7 @@
  */
 
 import axios from 'axios';
-import { getFetchClient } from '@strapi/strapi/admin/utils';
+import { getFetchClient } from '@strapi/strapi/admin';
 
 const { auth } = getFetchClient();
 
