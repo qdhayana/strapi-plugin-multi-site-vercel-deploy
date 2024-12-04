@@ -7,11 +7,7 @@
 import React, { memo } from "react";
 
 import { EmptyStateLayout, LinkButton } from "@strapi/design-system";
-import EmptyDocuments from "@strapi/icons/EmptyDocuments";
-import EmptyPermissions from "@strapi/icons/EmptyPermissions";
-import ExclamationMarkCircle from "@strapi/icons/ExclamationMarkCircle";
-import EmotionUnhappy from "@strapi/icons/EmotionUnhappy";
-import ArrowRight from "@strapi/icons/ArrowRight";
+import { EmptyDocuments, EmptyPermissions, ExclamationMarkCircle, EmotionUnhappy, ArrowRight } from "@strapi/icons";
 
 import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 

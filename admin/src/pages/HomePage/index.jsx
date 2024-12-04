@@ -9,7 +9,7 @@ import React, { memo, useState, useEffect } from "react";
 import { Box, BaseHeaderLayout, Link } from "@strapi/design-system";
 import { Page } from "@strapi/strapi/admin";
 
-import ArrowLeft from "@strapi/icons/ArrowLeft";
+import { ArrowLeft } from "@strapi/icons";
 
 import Notifications from "../../components/Notifications";
 import SymmetricBox from "../../components/SymmetricBox";

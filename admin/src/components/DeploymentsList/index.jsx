@@ -6,8 +6,7 @@
 
 import React from "react";
 import { Table, Thead, Tbody, Tr, Td, Th, Typography, Tooltip, LinkButton, Badge, Loader } from "@strapi/design-system";
-import ExternalLink from "@strapi/icons/ExternalLink";
-import { Eye } from "@strapi/icons";
+import { Eye, ExternalLink } from "@strapi/icons";
 
 
 import SymmetricBox from "../SymmetricBox";

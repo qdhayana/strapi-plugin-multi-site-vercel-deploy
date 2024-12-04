@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 
 import { useNotification } from "@strapi/strapi/admin";
 import { Button, Loader } from "@strapi/design-system";
-import Plus from "@strapi/icons/Plus";
+import { Plus } from "@strapi/icons";
 
 import SymmetricBox from "../SymmetricBox";
 import FormattedMessage from "../FormattedMessage";
