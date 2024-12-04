@@ -6,18 +6,17 @@
  */
 
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import { NotFound } from "@strapi/helper-plugin";
+import { Routes, Route } from "react-router-dom";
 import pluginId from "../../pluginId";
 import SettingsPage from "../SettingsPage";
 
 const SettingsApp = () => {
   return (
     <div>
-      <Switch>
-        <Route path={`/settings/${pluginId}`} component={SettingsPage} exact />
-        <Route component={NotFound} />
-      </Switch>
+      <Routes>
+        <Route path={`/settings/${pluginId}`} element={<SettingsPage />} />
+        <Route path="*" element={<Page.NoData />} />
+      </Routes>
     </div>
   );
 };

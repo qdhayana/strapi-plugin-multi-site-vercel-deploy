@@ -6,7 +6,7 @@
 
 import React, { useState, useEffect } from "react";
 
-import { useNotification } from "@strapi/helper-plugin";
+import { useNotification } from "@strapi/strapi/admin";
 import { Button } from "@strapi/design-system/Button";
 import { Loader } from "@strapi/design-system/Loader";
 import Plus from "@strapi/icons/Plus";

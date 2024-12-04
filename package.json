@@ -30,7 +30,7 @@
     "react-intl": "^5.25.1"
   },
   "peerDependencies": {
-    "@strapi/strapi": "^4.5.3"
+    "@strapi/strapi": "^5.0.0"
   },
   "keywords": [
     "strapi",

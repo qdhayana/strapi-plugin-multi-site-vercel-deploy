@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import { NotificationsProvider } from "@strapi/helper-plugin";
+import { NotificationsProvider } from "@strapi/strapi/admin/notifications";
 import { Stack } from "@strapi/design-system/Stack";
 
 import Notification from "./Notification";
