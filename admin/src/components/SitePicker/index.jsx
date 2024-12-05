@@ -1,6 +1,9 @@
 import React from "react";
 import { Select, Option } from "@strapi/design-system";
-
+import {
+  SingleSelect,
+  SingleSelectOption,
+} from '@strapi/design-system';
 const SitePicker = ({ sites, selectedSite, setSelectedSite }) => {
   const handleChange = (value) => {
     if (value === selectedSite.appFilter) return;
@@ -10,13 +13,13 @@ const SitePicker = ({ sites, selectedSite, setSelectedSite }) => {
   };
 
   return (
-    <Select size="M" value={selectedSite.appFilter} onChange={handleChange}>
+    <SingleSelect size="M" value={selectedSite.appFilter} onChange={handleChange}>
       {sites.map((site) => (
-        <Option key={site.appFilter} value={site.appFilter}>
+        <SingleSelectOption key={site.appFilter} value={site.appFilter}>
           {site.displayName}
-        </Option>
+        </SingleSelectOption>
       ))}
-    </Select>
+    </SingleSelect>
   );
 };
 

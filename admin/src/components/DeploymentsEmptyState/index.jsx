@@ -7,7 +7,7 @@
 import React, { memo } from "react";
 
 import { EmptyStateLayout, LinkButton } from "@strapi/design-system";
-import { EmptyDocuments, EmptyPermissions, ExclamationMarkCircle, EmotionUnhappy, ArrowRight } from "@strapi/icons";
+import { File, Lock, WarningCircle, EmotionUnhappy, ArrowRight } from "@strapi/icons";
 
 import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
@@ -25,13 +25,13 @@ const wrapIcon = (icon) => <div style={{ fontSize: "6rem" }}>{icon}</div>;
 const getIcon = (listDeployAvailability) => {
   switch (listDeployAvailability) {
     case "MISSING_CONFIG_OBJECT":
-      return wrapIcon(<ExclamationMarkCircle />);
+      return wrapIcon(<WarningCircle />);
 
     case "MISSING_CONFIG_VARIABLE":
-      return wrapIcon(<EmptyPermissions />);
+      return wrapIcon(<Lock />);
 
     case "MISSING_DEPLOYMENTS":
-      return wrapIcon(<EmptyDocuments />);
+      return wrapIcon(<File />);
 
     case "ERROR_DEPLOYMENTS":
     case "ERROR_AVAILABILITY_GENERIC":

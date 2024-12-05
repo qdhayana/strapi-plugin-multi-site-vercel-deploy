@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 
 import { NotifyProvider } from "@strapi/admin/strapi-admin";
-import { Stack } from "@strapi/design-system";
 
 import Notification from "./Notification";
 
@@ -20,14 +19,18 @@ const Notifications = ({ children }) => {
 
   return (
     <NotifyProvider toggleNotification={displayNotification}>
-      <Stack
-        left="50%"
-        marginLeft="-250px"
-        position="fixed"
-        spacing={2}
-        top={`${46 / 16}rem`}
-        width={`${500 / 16}rem`}
-        zIndex={10}
+      <div
+        style={{
+          position: 'fixed',
+          left: '50%',
+          marginLeft: '-250px',
+          top: '2.875rem', // 46/16 rem
+          width: '31.25rem', // 500/16 rem
+          zIndex: 10,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem', // spacing(2)
+        }}
       >
         {notification && (
           <Notification
@@ -36,7 +39,7 @@ const Notifications = ({ children }) => {
             notification={notification}
           />
         )}
-      </Stack>
+      </div>
       {children}
     </NotifyProvider>
   );
