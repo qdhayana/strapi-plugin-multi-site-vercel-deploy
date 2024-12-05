@@ -6,7 +6,7 @@
 
 import React, { memo, useEffect, useState } from "react";
 
-import { Box, Flex, Loader, Flex, Typography, Divider, TextInput } from "@strapi/design-system";
+import { Box, Flex, Loader, Typography, Divider, TextInput } from "@strapi/design-system";
 
 
 import DeploymentsEmptyState from "../../components/DeploymentsEmptyState";
