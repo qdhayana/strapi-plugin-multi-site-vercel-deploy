@@ -1,5 +1,4 @@
 import React from "react";
-import { Select, Option } from "@strapi/design-system";
 import {
   SingleSelect,
   SingleSelectOption,

@@ -6,8 +6,13 @@
 
 import React, { memo, useState, useEffect } from "react";
 
-import { Box, BaseHeaderLayout, Link } from "@strapi/design-system";
-import { Page } from "@strapi/strapi/admin";
+import {
+  Box,
+  Flex,
+  Typography,
+  Link,
+  Button
+} from "@strapi/design-system"; import { Page } from "@strapi/strapi/admin";
 
 import { ArrowLeft } from "@strapi/icons";
 
@@ -88,31 +93,52 @@ const HomePage = () => {
   return (
     <Notifications>
       <Box background="neutral100">
-        <BaseHeaderLayout
-          navigationAction={
-            <Link startIcon={<ArrowLeft />} to="/">
-              Go back
-            </Link>
-          }
-          primaryAction={
-            <DeployButton
-              selectedSite={selectedSite}
-              availabilityApiError={apiError}
-              runDeployAvailability={availability?.runDeploy}
-              onDeployed={onDeployed}
-            />
-          }
-          secondaryAction={
-            <SitePicker
-              sites={sites}
-              selectedSite={selectedSite}
-              setSelectedSite={setSelectedSite}
-            />
-          }
-          title={headerTitle}
-          subtitle={headerSubtitle}
-          as="h2"
-        />
+        <Box padding={4} background="neutral100">
+          <Flex direction="column" gap={4}>
+            {/* Header Section */}
+            <Flex justifyContent="space-between" alignItems="center">
+              {/* Navigation Action (Left) */}
+              <Box>
+                <Link to="/" startIcon={<ArrowLeft />}>
+                  Go back
+                </Link>
+              </Box>
+
+              {/* Actions (Right) */}
+              <Flex gap={2} alignItems="center">
+                {/* Secondary Action */}
+                <Box>
+                  <SitePicker
+                    sites={sites}
+                    selectedSite={selectedSite}
+                    setSelectedSite={setSelectedSite}
+                  />
+                </Box>
+
+                {/* Primary Action */}
+                <Box>
+                  <DeployButton
+                    selectedSite={selectedSite}
+                    availabilityApiError={apiError}
+                    runDeployAvailability={availability?.runDeploy}
+                    onDeployed={onDeployed}
+                  />
+                </Box>
+              </Flex>
+            </Flex>
+
+            <Box>
+              <Typography variant="alpha" as="h2">
+                {headerTitle}
+              </Typography>
+              {headerSubtitle && (
+                <Typography variant="epsilon">
+                  {headerSubtitle}
+                </Typography>
+              )}
+            </Box>
+          </Flex>
+        </Box>
       </Box>
       <SymmetricBox paddingHorizontal={10} paddingVertical={2}>
         {canListDeploy ? (

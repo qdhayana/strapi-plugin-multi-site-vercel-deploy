@@ -6,13 +6,8 @@
 
 import React, { memo, useEffect, useState } from "react";
 
-import { Box, Stack, HeaderLayout, Loader, Flex, Typography, Divider } from "@strapi/design-system";
-import {
-  Field,
-  FieldLabel,
-  FieldInput,
-  FieldHint,
-} from "@strapi/design-system";
+import { Box, Flex, Loader, Flex, Typography, Divider, TextInput } from "@strapi/design-system";
+
 
 import DeploymentsEmptyState from "../../components/DeploymentsEmptyState";
 import { getConfig } from "../../utils/api";
@@ -36,9 +31,14 @@ const BoxField = ({ fieldName, fieldHint, children }) => {
       paddingTop={verticalPadding}
       paddingBottom={verticalPadding}
     >
-      <Field name={fieldName} hint={fieldHint}>
+      <Box name={fieldName}>
         {children}
-      </Field>
+        {fieldHint && (
+          <Typography variant="pi" textColor="neutral600" paddingTop={2}>
+            {fieldHint}
+          </Typography>
+        )}
+      </Box>
     </Box>
   );
 };
@@ -135,19 +135,20 @@ const SettingsContainer = () => {
               </>
             }
           >
-            <Stack>
-              <FieldLabel required>
+            <Flex direction="column" gap={1}>
+              <Typography variant="sigma" textColor="neutral800" as="label" required>
                 <FormattedMessage labelId="settings-page.deploy-hook.label" />
-              </FieldLabel>
-              <FieldInput
+              </Typography>
+              <TextInput
                 type="text"
                 placeholder={deployHookPlaceholder}
                 value={config.deployHook}
                 disabled={true}
+                aria-label="Deploy Hook"
               />
-              <FieldHint />
-            </Stack>
+            </Flex>
           </BoxField>
+
           <BoxField
             fieldName="vercel-deploy-api-token"
             fieldHint={
@@ -159,19 +160,20 @@ const SettingsContainer = () => {
               </>
             }
           >
-            <Stack>
-              <FieldLabel required>
+            <Flex direction="column" gap={1}>
+              <Typography variant="sigma" textColor="neutral800" as="label" required>
                 <FormattedMessage labelId="settings-page.api-token.label" />
-              </FieldLabel>
-              <FieldInput
+              </Typography>
+              <TextInput
                 type="text"
                 placeholder={apiTokenPlaceholder}
                 value={config.apiToken}
                 disabled={true}
+                aria-label="API Token"
               />
-              <FieldHint />
-            </Stack>
+            </Flex>
           </BoxField>
+
           <BoxField
             fieldName="vercel-deploy-app-name"
             fieldHint={
@@ -184,19 +186,20 @@ const SettingsContainer = () => {
               </>
             }
           >
-            <Stack>
-              <FieldLabel>
+            <Flex direction="column" gap={1}>
+              <Typography variant="sigma" textColor="neutral800" as="label">
                 <FormattedMessage labelId="settings-page.app-name.label" />
-              </FieldLabel>
-              <FieldInput
+              </Typography>
+              <TextInput
                 type="text"
                 placeholder={appNamePlaceholder}
                 value={config.appFilter}
                 disabled={true}
+                aria-label="App Name"
               />
-              <FieldHint />
-            </Stack>
+            </Flex>
           </BoxField>
+
           <BoxField
             fieldName="vercel-deploy-team-id"
             fieldHint={
@@ -209,18 +212,18 @@ const SettingsContainer = () => {
               </>
             }
           >
-            <Stack>
-              <FieldLabel>
+            <Flex direction="column" gap={1}>
+              <Typography variant="sigma" textColor="neutral800" as="label">
                 <FormattedMessage labelId="settings-page.team-id.label" />
-              </FieldLabel>
-              <FieldInput
+              </Typography>
+              <TextInput
                 type="text"
                 placeholder={teamIdPlaceholder}
                 value={config.teamFilter}
                 disabled={true}
+                aria-label="Team ID"
               />
-              <FieldHint />
-            </Stack>
+            </Flex>
           </BoxField>
           <Divider />
         </>
@@ -236,7 +239,18 @@ const SettingsPage = () => {
   return (
     <>
       <Box background="neutral100">
-        <HeaderLayout title={headerTitle} subtitle={headerSubtitle} as="h2" />
+        <Box paddingBottom={4}>
+          <Flex direction="column" gap={2}>
+            <Typography variant="alpha" as={"h2"}>
+              {headerTitle}
+            </Typography>
+            {headerSubtitle && (
+              <Typography variant="epsilon" textColor="neutral600">
+                {headerSubtitle}
+              </Typography>
+            )}
+          </Flex>
+        </Box>
       </Box>
       <SettingsContainer />
     </>
