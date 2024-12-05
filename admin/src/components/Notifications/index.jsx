@@ -1,47 +1,77 @@
-// The following code is inspired by https://github.com/strapi/strapi/blob/39c02e972392ee1add553a2577b6626e8772fcae/packages/core/admin/admin/src/components/Notifications/index.js
+import React, { useRef, useState, useCallback, useMemo, useContext } from 'react';
+import { Flex } from '@strapi/design-system';
+import { NotificationsContext } from './NotificationsContext';
+import Notification from './Notification';
 
-import React, { useState } from "react";
+export const useNotifications = () => {
+  const context = useContext(NotificationsContext);
 
-import { NotifyProvider } from "@strapi/admin/strapi-admin";
+  if (context === undefined) {
+    throw new Error('useNotifications must be used within a NotificationsProvider');
+  }
 
-import Notification from "./Notification";
+  return context;
+};
 
 const Notifications = ({ children }) => {
-  const [notification, setNotification] = useState(undefined);
+  const notificationIdRef = useRef(0);
+  const [notifications, setNotifications] = useState([]);
 
-  const displayNotification = (config) => {
-    setNotification(config);
-  };
+  const toggleNotification = useCallback(({
+    type,
+    message,
+    link,
+    timeout,
+    blockTransition,
+    onClose,
+    title
+  }) => {
+    setNotifications((currentNotifications) => [
+      ...currentNotifications,
+      {
+        id: notificationIdRef.current++,
+        type,
+        message,
+        link,
+        timeout,
+        blockTransition,
+        onClose,
+        title
+      }
+    ]);
+  }, []);
 
-  const onClose = () => {
-    setNotification(undefined);
-  };
+  const clearNotification = useCallback((id) => {
+    setNotifications((currentNotifications) =>
+      currentNotifications.filter((notification) => notification.id !== id)
+    );
+  }, []);
+
+  const value = useMemo(() => ({ toggleNotification }), [toggleNotification]);
 
   return (
-    <NotifyProvider toggleNotification={displayNotification}>
-      <div
-        style={{
-          position: 'fixed',
-          left: '50%',
-          marginLeft: '-250px',
-          top: '2.875rem', // 46/16 rem
-          width: '31.25rem', // 500/16 rem
-          zIndex: 10,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '0.5rem', // spacing(2)
-        }}
+    <NotificationsContext.Provider value={value}>
+      <Flex
+        left="50%"
+        marginLeft="-250px"
+        position="fixed"
+        direction="column"
+        alignItems="stretch"
+        gap={2}
+        top={`${46 / 16}rem`}
+        width={`${500 / 16}rem`}
+        zIndex={10}
       >
-        {notification && (
+        {notifications.map((notification) => (
           <Notification
             key={notification.id}
-            onClose={onClose}
-            notification={notification}
+            {...notification}
+            clearNotification={clearNotification}
           />
-        )}
-      </div>
+        ))}
+      </Flex>
       {children}
-    </NotifyProvider>
+    </NotificationsContext.Provider>
   );
 };
 
