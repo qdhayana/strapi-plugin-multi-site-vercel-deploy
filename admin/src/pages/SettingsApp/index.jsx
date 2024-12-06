@@ -9,7 +9,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import pluginId from "../../pluginId";
 import SettingsPage from "../SettingsPage";
-
+import { Page } from "@strapi/strapi/admin";
 const SettingsApp = () => {
   return (
     <div>
