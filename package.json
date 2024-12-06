@@ -1,6 +1,6 @@
 {
   "name": "@qdhayana/strapi-plugin-multi-site-vercel-deploy",
-  "version": "2.0.23",
+  "version": "2.0.24",
   "description": "Strapi v4 plugin to trigger and monitor deployment of multiple applications on Vercel",
   "repository": "https://github.com/qdhayana/strapi-plugin-multi-site-vercel-deploy.git",
   "homepage": "https://github.com/qdhayana/strapi-plugin-multi-site-vercel-deploy#readme",
