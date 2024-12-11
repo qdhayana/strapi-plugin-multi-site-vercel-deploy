@@ -11,10 +11,10 @@ import pluginId from '../../pluginId';
 import HomePage from '../HomePage';
 import { Page } from "@strapi/strapi/admin";
 import { IntlProvider } from 'react-intl';
-
+import en from "../../translations/en.json"
 const App = () => {
   return (
-    <IntlProvider locale="en">
+    <IntlProvider locale="en" messages={en}>
       <div>
         <Routes>
           <Route path={`/plugins/${pluginId}`} element={<HomePage />} />
