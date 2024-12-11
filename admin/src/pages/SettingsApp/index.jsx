@@ -10,14 +10,19 @@ import { Routes, Route } from "react-router-dom";
 import pluginId from "../../pluginId";
 import SettingsPage from "../SettingsPage";
 import { Page } from "@strapi/strapi/admin";
+import { IntlProvider } from 'react-intl';
+
 const SettingsApp = () => {
   return (
-    <div>
-      <Routes>
-        <Route path={`/settings/${pluginId}`} element={<SettingsPage />} />
-        <Route path="*" element={<SettingsPage />} />
-      </Routes>
-    </div>
+    <IntlProvider locale="en">
+      <div>
+        <Routes>
+          <Route path={`/settings/${pluginId}`} element={<SettingsPage />} />
+          <Route path="*" element={<SettingsPage />} />
+        </Routes>
+      </div>
+    </IntlProvider>
+
   );
 };
 
