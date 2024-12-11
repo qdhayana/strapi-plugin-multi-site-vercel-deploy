@@ -8,7 +8,6 @@ import React from "react";
 
 import { Typography } from "@strapi/design-system";
 
-import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Props} Props
@@ -20,7 +19,7 @@ import { useFormattedMessage } from "../../hooks/useFormattedMessage";
  * @returns {JSX.Element}
  */
 const FormattedMessage = ({ labelId, variant, textColor }) => {
-  const label = useFormattedMessage(labelId);
+  const label = labelId;
 
   if (variant || textColor) {
     return (

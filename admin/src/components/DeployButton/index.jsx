@@ -11,10 +11,8 @@ import { Button, Loader } from "@strapi/design-system";
 import { Plus } from "@strapi/icons";
 
 import SymmetricBox from "../SymmetricBox";
-import FormattedMessage from "../FormattedMessage";
 import { getErrorNotification } from "./ErrorUtils";
 import { runDeploy } from "../../utils/api";
-import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Props} Props
@@ -63,7 +61,7 @@ const DeployButton = ({
 }) => {
   /** @type {(config: NotificationConfig) => void} */
   const toggleNotification = useNotification();
-  const labelLoader = useFormattedMessage("deploy-button.loader");
+  const labelLoader = "Loading";
 
   const [isLoading, setIsLoading] = useState(false);
   const [hasDeployError, setHasDeployError] = useState(false);
@@ -110,7 +108,7 @@ const DeployButton = ({
           <div style={{ display: "flex", alignItems: "center" }}>
             <Plus />
             <span style={{ width: "8px" }} />
-            <FormattedMessage labelId="deploy-button.label" />
+            Deploy
           </div>
         </Button>
       </SymmetricBox>

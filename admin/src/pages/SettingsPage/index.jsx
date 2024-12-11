@@ -13,7 +13,6 @@ import DeploymentsEmptyState from "../../components/DeploymentsEmptyState";
 import { getConfig } from "../../utils/api";
 import FormattedMessage from "../../components/FormattedMessage";
 import ExternalLink from "../../components/ExternalLink";
-import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('../../../../types/typedefs').PluginConfigMap} PluginConfigMap
@@ -44,21 +43,11 @@ const BoxField = ({ fieldName, fieldHint, children }) => {
 };
 
 const SettingsContainer = () => {
-  const deployHookPlaceholder = useFormattedMessage(
-    "settings-page.deploy-hook.placeholder"
-  );
-  const apiTokenPlaceholder = useFormattedMessage(
-    "settings-page.api-token.placeholder"
-  );
-  const appNamePlaceholder = useFormattedMessage(
-    "settings-page.app-name.placeholder"
-  );
-  const teamIdPlaceholder = useFormattedMessage(
-    "settings-page.team-id.placeholder"
-  );
-  const labelLoader = useFormattedMessage(
-    "settings-page.settings-container.loader"
-  );
+  const deployHookPlaceholder = "You need to set `deployHook` in plugin config";
+  const apiTokenPlaceholder = "You need to set `apiToken` in plugin config";
+  const appNamePlaceholder = "You need to set `appFilter` in plugin config";
+  const teamIdPlaceholder = "You need to set `teamFilter` in plugin config";
+  const labelLoader = "Loading settings...";
 
   /** @type {[ApiErrorType?, (error: ApiErrorType?) => void]} */
   const [apiError, setApiError] = useState(undefined);
@@ -233,8 +222,8 @@ const SettingsContainer = () => {
 };
 
 const SettingsPage = () => {
-  const headerTitle = useFormattedMessage("settings-page.header.title");
-  const headerSubtitle = useFormattedMessage("settings-page.header.subtitle");
+  const headerTitle = "Configuration";
+  const headerSubtitle = "Configure your Vercel Deploy plugin";
 
   return (
     <>

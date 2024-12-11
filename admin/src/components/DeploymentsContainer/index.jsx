@@ -10,7 +10,6 @@ import { Loader, Flex, Box, Typography } from "@strapi/design-system";
 import { useDeployments } from "../../hooks/useDeployments";
 import DeploymentsEmptyState from "../DeploymentsEmptyState";
 import DeploymentsList from "../DeploymentsList";
-import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Deployment} Deployment
@@ -27,7 +26,7 @@ const DeploymentsContainer = ({
   usePolling,
   onDeploymentsFetched,
 }) => {
-  const labelLoader = useFormattedMessage("deployments-container.loader");
+  const labelLoader = "Loading";
 
   const [isLoadingDeployments, deployments, hasDeploymentsError] =
     useDeployments(selectedSite, usePolling, onDeploymentsFetched);

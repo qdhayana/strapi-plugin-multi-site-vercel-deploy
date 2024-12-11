@@ -11,7 +11,6 @@ import { Eye, ExternalLink } from "@strapi/icons";
 
 import SymmetricBox from "../SymmetricBox";
 import FormattedMessage from "../FormattedMessage";
-import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 
 /**
  * @typedef {import('./typedefs').Props} Props
@@ -68,7 +67,7 @@ const DeploymentsList = ({ deployments, usePolling }) => {
   const ROW_COUNT = deployments.length + 1;
   const COL_COUNT = 5;
 
-  const labelLoader = useFormattedMessage("home-page.deployments.loader");
+  const labelLoader = "Loading";
 
   const headerFontVariant = "sigma";
   const cellTextColor = "neutral800";
@@ -80,13 +79,13 @@ const DeploymentsList = ({ deployments, usePolling }) => {
           <Th>
             <FormattedMessage
               variant={headerFontVariant}
-              labelId="deployments-list.table-header.app-name"
+              labelId="App name"
             />
           </Th>
           <Th>
             <FormattedMessage
               variant={headerFontVariant}
-              labelId="deployments-list.table-header.state"
+              labelId="State"
             />
             {usePolling && (
               <SymmetricBox paddingHorizontal={2} paddingVertical={0}>
@@ -97,7 +96,7 @@ const DeploymentsList = ({ deployments, usePolling }) => {
           <Th>
             <FormattedMessage
               variant={headerFontVariant}
-              labelId="deployments-list.table-header.creation-date"
+              labelId="Creation date"
             />
           </Th>
           <Th />
@@ -125,7 +124,7 @@ const DeploymentsList = ({ deployments, usePolling }) => {
             <Td>
               <Tooltip
                 description={
-                  <FormattedMessage labelId="deployments-list.table-body.visit-url-text" />
+                  <FormattedMessage labelId="Visit" />
                 }
               >
                 <LinkButton
@@ -138,7 +137,7 @@ const DeploymentsList = ({ deployments, usePolling }) => {
               </Tooltip>
               <Tooltip
                 description={
-                  <FormattedMessage labelId="deployments-list.table-body.inspect-url-text" />
+                  <FormattedMessage labelId="Inspect" />
                 }
               >
                 <LinkButton

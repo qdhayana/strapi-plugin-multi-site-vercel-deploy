@@ -23,7 +23,6 @@ import DeploymentsContainer from "../../components/DeploymentsContainer";
 import DeploymentsEmptyState from "../../components/DeploymentsEmptyState";
 import SitePicker from "../../components/SitePicker";
 import { useDeployAvailability } from "../../hooks/useDeployAvailability";
-import { useFormattedMessage } from "../../hooks/useFormattedMessage";
 import { getSites } from "../../utils/getSites";
 
 /**
@@ -58,8 +57,8 @@ const getDeploymentsEmptyStateType = (
 };
 
 const HomePage = () => {
-  const headerTitle = useFormattedMessage("home-page.header.title");
-  const headerSubtitle = useFormattedMessage("home-page.header.subtitle");
+  const headerTitle = "Vercel Deploy";
+  const headerSubtitle = "Manual deploy - Start a deployment on Vercel using the webhook you configured";
 
   const [useDeploymentsPolling, setUseDeploymentsPolling] = useState(false);
   const [sites, setSites] = useState([]);

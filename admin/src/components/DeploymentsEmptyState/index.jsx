@@ -9,8 +9,6 @@ import React, { memo } from "react";
 import { EmptyStateLayout, LinkButton } from "@strapi/design-system";
 import { File, Lock, WarningCircle, EmotionUnhappy, ArrowRight } from "@strapi/icons";
 
-import { useFormattedMessage } from "../../hooks/useFormattedMessage";
-
 /**
  * @typedef {import('./typedefs').Props} Props
  * @typedef {import('./typedefs').EmptyStateType} DeploymentsAvailability
@@ -49,28 +47,28 @@ const getIcon = (listDeployAvailability) => {
 const getTextId = (listDeployAvailability) => {
   switch (listDeployAvailability) {
     case "MISSING_CONFIG_OBJECT":
-      return "deployments-empty-state.missing-config-object";
+      return "The config object is empty and this is unexpected";
 
     case "MISSING_CONFIG_VARIABLE":
-      return "deployments-empty-state.missing-config-variable";
+      return "You did not set the Vercel API Token. Go to Plugin settings for more info";
 
     case "MISSING_DEPLOYMENTS":
-      return "deployments-empty-state.missing-deployments";
+      return "There isn't any deployment in your account";
 
     case "ERROR_DEPLOYMENTS":
-      return "deployments-empty-state.error-deployments";
+      return "There was an error while fetching the deployments. Please, retry.";
 
     case "ERROR_AVAILABILITY_GENERIC":
-      return "deployments-empty-state.error-availability";
+      return "There was an error while fetching the features availability. Please, retry.";
 
     case "ERROR_AVAILABILITY_FORBIDDEN":
-      return "deployments-empty-state.error-forbidden";
+      return "You may not have the correct permissions";
 
     case "ERROR_CONFIG":
-      return "deployments-empty-state.error-config";
+      return "There was an error while fetching the configurations. Please, retry.";
 
     default:
-      return "deployments-empty-state.default";
+      return "There was an unexpected error";
   }
 };
 
@@ -85,11 +83,9 @@ const DeploymentsEmptyState = ({ type }) => {
   }
 
   const messageId = getTextId(type);
-  const message = useFormattedMessage(messageId);
+  const message = messageId;
 
-  const linkText = useFormattedMessage(
-    "deployments-empty-state.missing-config-variable.link-text"
-  );
+  const linkText = "See plugin settings";
   const action = type === "MISSING_CONFIG_VARIABLE" && (
     <LinkButton
       variant={"secondary"}

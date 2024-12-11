@@ -1,7 +1,6 @@
 // The following code in inspired by https://github.com/strapi/strapi/blob/3268c71b3ec67fc713d07d38c715f0a1e3f111e9/packages/core/admin/admin/src/components/Notifications/Notification/index.js
 
 import React, { useEffect, useCallback } from "react";
-import { useIntl } from "react-intl";
 
 import { Alert } from "@strapi/design-system";
 import { Link } from "@strapi/design-system";
@@ -33,12 +32,11 @@ const getDefaultMessage = (msg) => {
  * @returns {JSX.Element}
  */
 const Notification = ({ onClose: mainOnClose, notification }) => {
-  const { formatMessage } = useIntl();
   const { message, link, type, id, onClose, timeout, blockTransition } =
     notification;
 
   const formattedMessage = (msg) =>
-    typeof msg === "string" ? msg : formatMessage(msg, msg.values);
+    typeof msg === "string" ? msg : "";
   const handleClose = useCallback(() => {
     if (onClose) {
       onClose();
@@ -75,10 +73,7 @@ const Notification = ({ onClose: mainOnClose, notification }) => {
       action={
         link ? (
           <Link href={link.url} isExternal>
-            {formatMessage({
-              id: getId(link.label),
-              defaultMessage: getDefaultMessage(link.label),
-            })}
+            {getDefaultMessage(link.label)}
           </Link>
         ) : undefined
       }
