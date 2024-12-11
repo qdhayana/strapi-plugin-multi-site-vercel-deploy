@@ -15,7 +15,7 @@ const App = () => {
     <div>
       <Routes>
         <Route path={`/plugins/${pluginId}`} element={<HomePage />} />
-        <Route path="*" element={<Page.NoData />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </div>
   );

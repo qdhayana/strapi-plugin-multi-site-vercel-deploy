@@ -15,7 +15,7 @@ const SettingsApp = () => {
     <div>
       <Routes>
         <Route path={`/settings/${pluginId}`} element={<SettingsPage />} />
-        <Route path="*" element={<Page.NoData />} />
+        <Route path="*" element={<SettingsPage />} />
       </Routes>
     </div>
   );
