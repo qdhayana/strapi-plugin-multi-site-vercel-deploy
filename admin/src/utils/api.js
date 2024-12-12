@@ -31,7 +31,14 @@ export const runDeploy = async (selectedSite) => {
  */
 export const getConfig = async () => {
   try {
-    const response = await axios(`/${pluginId}/config`, { method: "GET" });
+    const response = await axios(`/${pluginId}/config`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${sessionStorage.getItem('jwtToken')}`,
+        Accept: 'application/json'
+      }
+    });
     return response.data;
   } catch (error) {
     console.error("[vercel-deploy] Error while fetching configs -", error);
