@@ -92,23 +92,26 @@ const HomePage = () => {
   return (
     <Notifications>
       <Box background="neutral100">
-        <Box padding={4} background="neutral100">
+        <Box paddingHorizontal={10} paddingVertical={2} background="neutral100">
           <Box>
             <Link to="/" startIcon={<ArrowLeft />}>
               Go back
             </Link>
           </Box>
 
-          <Flex justifyContent="between">
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
             <Flex>
               <Typography variant="alpha" as="h2">
                 {headerTitle}
               </Typography>
-              <SitePicker
-                sites={sites}
-                selectedSite={selectedSite}
-                setSelectedSite={setSelectedSite}
-              />
+              <div style={{ paddingLeft: "16px" }}>
+                <SitePicker
+                  sites={sites}
+                  selectedSite={selectedSite}
+                  setSelectedSite={setSelectedSite}
+                />
+              </div>
+
             </Flex>
             <Box>
               <DeployButton
@@ -118,7 +121,7 @@ const HomePage = () => {
                 onDeployed={onDeployed}
               />
             </Box>
-          </Flex>
+          </div>
           <Box>
             {headerSubtitle && (
               <Typography variant="epsilon">
