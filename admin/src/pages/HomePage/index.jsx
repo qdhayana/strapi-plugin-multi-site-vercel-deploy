@@ -93,68 +93,53 @@ const HomePage = () => {
     <Notifications>
       <Box background="neutral100">
         <Box padding={4} background="neutral100">
-          <Flex direction="column" gap={4}>
-            {/* Header Section */}
-            <Flex justifyContent="space-between" alignItems="center">
-              {/* Navigation Action (Left) */}
-              <Box>
-                <Link to="/" startIcon={<ArrowLeft />}>
-                  Go back
-                </Link>
-              </Box>
+          <Box>
+            <Link to="/" startIcon={<ArrowLeft />}>
+              Go back
+            </Link>
+          </Box>
 
-              {/* Actions (Right) */}
-              <Flex gap={2} alignItems="center">
-                {/* Secondary Action */}
-                <Box>
-                  <SitePicker
-                    sites={sites}
-                    selectedSite={selectedSite}
-                    setSelectedSite={setSelectedSite}
-                  />
-                </Box>
-
-                {/* Primary Action */}
-                <Box>
-                  <DeployButton
-                    selectedSite={selectedSite}
-                    availabilityApiError={apiError}
-                    runDeployAvailability={availability?.runDeploy}
-                    onDeployed={onDeployed}
-                  />
-                </Box>
-              </Flex>
-            </Flex>
-
-            <Box>
+          <Flex justifyContent="between">
+            <Flex>
               <Typography variant="alpha" as="h2">
                 {headerTitle}
               </Typography>
-              {headerSubtitle && (
-                <Typography variant="epsilon">
-                  {headerSubtitle}
-                </Typography>
-              )}
+              <SymmetricBox paddingHorizontal={10} paddingVertical={2}>
+                {canListDeploy ? (
+                  <DeploymentsContainer
+                    selectedSite={selectedSite}
+                    usePolling={useDeploymentsPolling}
+                    onDeploymentsFetched={onDeploymentsFetched}
+                  />
+                ) : (
+                  <DeploymentsEmptyState
+                    type={getDeploymentsEmptyStateType(
+                      apiError,
+                      availability?.listDeploy
+                    )}
+                  />
+                )}
+              </SymmetricBox>
+            </Flex>
+            <Box>
+              <DeployButton
+                selectedSite={selectedSite}
+                availabilityApiError={apiError}
+                runDeployAvailability={availability?.runDeploy}
+                onDeployed={onDeployed}
+              />
             </Box>
           </Flex>
+          <Box>
+            {headerSubtitle && (
+              <Typography variant="epsilon">
+                {headerSubtitle}
+              </Typography>
+            )}
+          </Box>
         </Box>
       </Box>
-      <SymmetricBox paddingHorizontal={10} paddingVertical={2}>
-        {canListDeploy ? (
-          <DeploymentsContainer
-            selectedSite={selectedSite}
-            usePolling={useDeploymentsPolling}
-            onDeploymentsFetched={onDeploymentsFetched}
-          />
-        ) : (
-          <DeploymentsEmptyState
-            type={getDeploymentsEmptyStateType(
-              apiError,
-              availability?.listDeploy
-            )}
-          />
-        )}
-      </SymmetricBox>
+
     </Notifications>
   );
 };
