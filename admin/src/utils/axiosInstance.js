@@ -12,8 +12,9 @@ instance.interceptors.request.use(
   async config => {
     console.log(sessionStorage.getItem('jwtToken').replace(/['"]+/g, ''), "sessionStorage.getItem('jwtToken').replace(/['")
     console.log(typeof sessionStorage.getItem('jwtToken').replace(/['"]+/g, ''), "typ[eof")
+    const token = sessionStorage?.getItem('jwtToken')?.replace(/['"]+/g, '') || "";
     config.headers = {
-      Authorization: `Bearer ${sessionStorage.getItem('jwtToken')}`,
+      Authorization: `Bearer ${token}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     };
