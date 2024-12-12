@@ -92,7 +92,11 @@ const HomePage = () => {
   return (
     <Notifications>
       <Box background="neutral100">
-        <Box paddingHorizontal={10} paddingVertical={2} background="neutral100">
+        <Box
+          paddingLeft={10}
+          paddingRight={10}
+          paddingTop={2}
+          paddingBottom={2} background="neutral100">
           <Box>
             <Link to="/" startIcon={<ArrowLeft />}>
               Go back
