@@ -10,9 +10,10 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   async config => {
-    const clearString = sessionStorage.getItem('jwtToken').replace(/['"]+/g, '') || "";
+    console.log(sessionStorage.getItem('jwtToken').replace(/['"]+/g, ''), "sessionStorage.getItem('jwtToken').replace(/['")
+    console.log(typeof sessionStorage.getItem('jwtToken').replace(/['"]+/g, ''), "typ[eof")
     config.headers = {
-      Authorization: `Bearer ${clearString}`,
+      Authorization: `Bearer ${sessionStorage.getItem('jwtToken')}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     };
