@@ -16,7 +16,6 @@ instance.interceptors.request.use(
       Accept: 'application/json',
       'Content-Type': 'application/json',
     };
-    console.log(config.headers, "config.headers")
     return config;
   },
   error => {

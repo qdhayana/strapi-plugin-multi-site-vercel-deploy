@@ -78,8 +78,10 @@ export const deployAvailability = async (selectedSite) => {
         method: "GET",
       }
     );
+    console.log(response, "response deployAvailableity")
     return response.data;
   } catch (error) {
+    console.log(error, "error deployAvailableity")
     console.error(
       "[vercel-deploy]: Error while fetching deploy availability -",
       error

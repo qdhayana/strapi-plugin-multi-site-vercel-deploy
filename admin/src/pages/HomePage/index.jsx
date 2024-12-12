@@ -65,7 +65,7 @@ const HomePage = () => {
   const [selectedSite, setSelectedSite] = useState({});
   const [isLoadingAvailability, availability, apiError] =
     useDeployAvailability(selectedSite);
-
+  console.log("availability", availability, "apiError", apiError);
   const getDeploymentSites = async () => {
     const sitesFromConfig = await getSites();
     if (Object.keys(sitesFromConfig[0]).length > 0) {
