@@ -11,6 +11,7 @@ const instance = axios.create({
 instance.interceptors.request.use(
   async config => {
     config.headers = {
+      Authorization: `Bearer ${sessionStorage.getItem('jwtToken')}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     };
@@ -27,7 +28,7 @@ instance.interceptors.response.use(
   error => {
     // whatever you want to do with the error
     if (error.response?.status === 401) {
-      window.location.reload();
+      // window.location.reload();
     }
 
     throw error;
