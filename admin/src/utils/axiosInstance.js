@@ -10,12 +10,13 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   async config => {
+    console.log(sessionStorage.getItem('jwtToken'), "sessionStorage.getItem('jwtToken')")
     config.headers = {
       Authorization: `Bearer ${sessionStorage.getItem('jwtToken')}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     };
-
+    console.log(config.headers, "config.headers")
     return config;
   },
   error => {
