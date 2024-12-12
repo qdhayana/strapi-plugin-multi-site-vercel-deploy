@@ -104,22 +104,11 @@ const HomePage = () => {
               <Typography variant="alpha" as="h2">
                 {headerTitle}
               </Typography>
-              <SymmetricBox paddingHorizontal={10} paddingVertical={2}>
-                {canListDeploy ? (
-                  <DeploymentsContainer
-                    selectedSite={selectedSite}
-                    usePolling={useDeploymentsPolling}
-                    onDeploymentsFetched={onDeploymentsFetched}
-                  />
-                ) : (
-                  <DeploymentsEmptyState
-                    type={getDeploymentsEmptyStateType(
-                      apiError,
-                      availability?.listDeploy
-                    )}
-                  />
-                )}
-              </SymmetricBox>
+              <SitePicker
+                sites={sites}
+                selectedSite={selectedSite}
+                setSelectedSite={setSelectedSite}
+              />
             </Flex>
             <Box>
               <DeployButton
@@ -139,7 +128,22 @@ const HomePage = () => {
           </Box>
         </Box>
       </Box>
-
+      <SymmetricBox paddingHorizontal={10} paddingVertical={2}>
+        {canListDeploy ? (
+          <DeploymentsContainer
+            selectedSite={selectedSite}
+            usePolling={useDeploymentsPolling}
+            onDeploymentsFetched={onDeploymentsFetched}
+          />
+        ) : (
+          <DeploymentsEmptyState
+            type={getDeploymentsEmptyStateType(
+              apiError,
+              availability?.listDeploy
+            )}
+          />
+        )}
+      </SymmetricBox>
     </Notifications>
   );
 };
