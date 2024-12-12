@@ -66,11 +66,16 @@ const HomePage = () => {
   const [isLoadingAvailability, availability, apiError] =
     useDeployAvailability(selectedSite);
 
-  // useEffect(async () => {
-  //   const sitesFromConfig = await getSites();
-  //   setSites(sitesFromConfig);
-  //   setSelectedSite(sitesFromConfig[0]);
-  // }, []);
+  const getDeploymentSites = async () => {
+    const sitesFromConfig = await getSites();
+    setSites(sitesFromConfig);
+    setSelectedSite(sitesFromConfig[0]);
+  }
+  useEffect(() => {
+    getDeploymentSites()
+  }, []);
+
+
 
   /** @type {DeploymentsFetched} */
   const onDeploymentsFetched = (hasNonFinalState) => {
