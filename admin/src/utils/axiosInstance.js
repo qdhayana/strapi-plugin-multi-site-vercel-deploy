@@ -10,9 +10,8 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   async config => {
-    console.log(sessionStorage.getItem('jwtToken'), "sessionStorage.getItem('jwtToken')")
     config.headers = {
-      Authorization: `Bearer ${sessionStorage.getItem('jwtToken')}`,
+      Authorization: `Bearer ${sessionStorage.getItem('jwtToken').replace(/['"]+/g, '')}`,
       Accept: 'application/json',
       'Content-Type': 'application/json',
     };
