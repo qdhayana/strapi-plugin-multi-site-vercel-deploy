@@ -68,8 +68,11 @@ const HomePage = () => {
 
   const getDeploymentSites = async () => {
     const sitesFromConfig = await getSites();
-    setSites(sitesFromConfig);
-    setSelectedSite(sitesFromConfig[0]);
+    if (Object.keys(sitesFromConfig[0]).length > 0) {
+      setSites(sitesFromConfig);
+      setSelectedSite(sitesFromConfig[0]);
+    }
+
   }
   useEffect(() => {
     getDeploymentSites()
