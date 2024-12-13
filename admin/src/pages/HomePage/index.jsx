@@ -105,7 +105,7 @@ const HomePage = () => {
           paddingTop={2}
           paddingBottom={2} background="neutral100">
           <Box>
-            <Link to="/" startIcon={<ArrowLeft />}>
+            <Link to="/admin" startIcon={<ArrowLeft />}>
               Go back
             </Link>
           </Box>
