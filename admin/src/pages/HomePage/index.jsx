@@ -77,6 +77,9 @@ const HomePage = () => {
     getDeploymentSites()
   }, []);
 
+  backToHome = () => {
+    window.location.href = "/admin";
+  }
 
 
   /** @type {DeploymentsFetched} */
@@ -105,9 +108,9 @@ const HomePage = () => {
           paddingTop={2}
           paddingBottom={2} background="neutral100">
           <Box>
-            <Link to="/admin" startIcon={<ArrowLeft />}>
+            <Button onClick={() => backToHome()} variant="ghost" startIcon={<ArrowLeft />}>
               Go back
-            </Link>
+            </Button>
           </Box>
 
           <div style={{ display: "flex", justifyContent: "space-between" }}>
