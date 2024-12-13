@@ -77,7 +77,7 @@ const HomePage = () => {
     getDeploymentSites()
   }, []);
 
-  backToHome = () => {
+  const backToHome = () => {
     window.location.href = "/admin";
   }
 
