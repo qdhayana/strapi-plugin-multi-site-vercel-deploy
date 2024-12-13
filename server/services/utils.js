@@ -21,7 +21,6 @@ const buildConfig = (strapi, hideSensitiveInfo = false) => {
     const apiToken = hideSensitiveInfo
       ? site.apiToken?.substring(0, 6)
       : site.apiToken;
-    console.log(site, "buildConfig")
     return {
       ...site,
       apiToken,

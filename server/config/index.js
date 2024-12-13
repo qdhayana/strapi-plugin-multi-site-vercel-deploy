@@ -11,7 +11,6 @@ module.exports = {
    * @param {PluginConfigMap} config
    */
   validator(config) {
-    console.log(config, "validator")
     if (config.deployHook && typeof config.deployHook !== "string") {
       throw new Error("Config property `deployHook` has to be a string");
     }
