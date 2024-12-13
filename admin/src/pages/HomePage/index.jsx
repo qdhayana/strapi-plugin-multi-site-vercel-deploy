@@ -108,8 +108,8 @@ const HomePage = () => {
           paddingTop={2}
           paddingBottom={2} background="neutral100">
           <Box>
-            <Button onClick={() => backToHome()} variant="ghost" startIcon={<ArrowLeft />}>
-              Go back
+            <Button onClick={() => backToHome()} variant="secondary" startIcon={<ArrowLeft />}>
+              <p style={{ fontSize: "14px", marginBottom: 0 }}>Go back</p>
             </Button>
           </Box>
 
